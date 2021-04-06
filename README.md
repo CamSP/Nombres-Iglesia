@@ -3,9 +3,9 @@ En este proyecto se busca facilitar el procesado de imagen y video para desplega
 Esto se realiza por medio de una interfaz grafica intuitiva para el usuario, que muestra una previsualización de como se vería el nombre/titulo una vez exportado. Para la generación de la imagen se utiliza la libreria Pillow de Python, y para la renderización de proyectos de After Effects se usa la libreria OS, donde aplicando el cmd de windows se ejecuta el renderizado por medio de aerender.exe (aplicación incluida en After Effects). <br />
 
 ## Previsualización cuando el texto es corto o cuando es un nombre
-<br />
+
 ![image](https://user-images.githubusercontent.com/53503084/113650602-16466c80-9656-11eb-8262-d6cad9d91a77.png)
 
 ## Previsualización cuando el texto es largo
-<br />
+
 ![image](https://user-images.githubusercontent.com/53503084/113650943-b3a1a080-9656-11eb-9c28-13f8afd0540e.png)
