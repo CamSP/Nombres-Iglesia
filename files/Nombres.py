@@ -7,7 +7,7 @@ from PIL import Image as im, ImageDraw, ImageFont, ImageTk
 import PIL.Image
 from tkinter import *
 from tkinter import filedialog
-
+from pathlib import Path
 import json
 import threading
 import os
