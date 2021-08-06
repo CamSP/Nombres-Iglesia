@@ -8,7 +8,7 @@ Esto se realiza por medio de una interfaz grafica intuitiva para el usuario, que
 
 ## Previsualización cuando el texto es largo
 
-![alt text](https://user-images.githubusercontent.com/53503084/113650943-b3a1a080-9656-11eb-9c28-13f8afd0540e.png)
+![imagen](https://user-images.githubusercontent.com/53503084/113650943-b3a1a080-9656-11eb-9c28-13f8afd0540e.png)
 
 ## Animación
 Pendiente...
