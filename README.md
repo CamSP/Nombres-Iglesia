@@ -4,11 +4,11 @@ Esto se realiza por medio de una interfaz grafica intuitiva para el usuario, que
 
 ## Previsualización cuando es un nombre o un texto corto
 
-![image](https://user-images.githubusercontent.com/53503084/113650602-16466c80-9656-11eb-8262-d6cad9d91a77.png)
+![alt text](https://user-images.githubusercontent.com/53503084/113650602-16466c80-9656-11eb-8262-d6cad9d91a77.png)
 
 ## Previsualización cuando el texto es largo
 
-![image](https://user-images.githubusercontent.com/53503084/113650943-b3a1a080-9656-11eb-9c28-13f8afd0540e.png)
+![alt text](https://user-images.githubusercontent.com/53503084/113650943-b3a1a080-9656-11eb-9c28-13f8afd0540e.png)
 
 ## Animación
 Pendiente...
