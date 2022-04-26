@@ -1,0 +1,36 @@
+{
+    "template": {
+        "src": "file:///F:/Iglesia/nombresae/template.aep",
+        "composition": "LT4-V1"
+    },
+    "assets": [
+        {
+            "type": "data",
+            "layerName": "NOMBRE",
+            "composition": "LT4-V1",
+            "property": "Source Text",
+            "value": "Yubelly"
+        },
+        {
+            "type": "data",
+            "layerName": "CARGO",
+            "composition": "LT4-V1",
+            "property": "Source Text",
+            "value": "Pastora"
+        }
+    ],
+    "actions": {
+        "postrender": [
+            {
+                "module": "@nexrender/action-encode",
+                "preset": "mp4",
+                "output": "encoded.mp4"
+            },
+            {
+                "module": "@nexrender/action-copy",
+                "input": "encoded.mp4",
+                "output": "F:/Iglesia/Nombres-Iglesia/Nombres-Iglesia/Yubelly.mp4"
+            }
+        ]
+    }
+}

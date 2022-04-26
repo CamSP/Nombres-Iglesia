@@ -77,8 +77,8 @@ def preview(*args):
 
     #Se edita una label para mostrar la imagen
     photo = ImageTk.PhotoImage(img)
-    prev.config(image = photo)
-    prev.image = photo
+    #prev.config(image = photo)
+    #prev.image = photo
     
     #Si el tamaño de la imagen en la horizontal es mayor a 1920px, se muestra una advertencia de la longitud del texto
     if(img.size[0]>1920):
@@ -128,7 +128,6 @@ def creador(*args):
     #Se pregunta al usuario donde guardar la imagen y la animación
     path = filedialog.askdirectory()
     t = txt.get()
-    print(t)
     t = t.replace(":", " - ")
     t = t.replace("?", " - ")
     t = t.replace("¿", " - ")
@@ -139,14 +138,26 @@ def creador(*args):
     t = t.replace(">", " - ")
     t = t.replace("|", " - ")
     t = t.replace('"', " - ")
-    print(t)
     #Se guarda la imagen
     img.save(path + '/' + t + '.png')
+    
+    with open("main.json", "r+") as f:
+        data = json.load(f)
+        data["assets"][0]["value"] = txt.get()
+        data["assets"][1]["value"] = txtC.get()
+        data["actions"]["postrender"][1]["output"] = path + '/' + t + '.mp4'
+        f.seek(0)
+        json.dump(data, f, indent=4)
+        f.truncate()
+    
+    
+    os.system('nexrender-cli-win64.exe --file main.json --binary="C:\Program Files\Adobe\Adobe After Effects 2020\Support Files\arender.exe"')
+    
     #Se cre un hilo que renderiza la imagen, esto para que el programa no se detenga mientras se renderiza. De esta manera, el usuario puede ir preparando el sig:uiente nombre/titulo a exportar
     #t = threading.Thread(target = anim, args= (path, txt.get()), daemon=True)
     #t.start()
 
-            
+ 
     
 #Interfaz grafica
 raiz = Tk()
@@ -156,20 +167,28 @@ raiz.title('Nombres y titulos')
 nombre = Label(raiz, text='Nombre/Titulo:', font=('arial', 15))
 nombre.grid(row=0, column=0, sticky='w', pady=5, padx=5)
 #Label que explica que es la imagen que se muetra
-prev = Label(raiz, text='Previsualización:', font=('arial', 15))
-prev.grid(row=1, column=0, sticky='n', pady=5, padx=5)
+#prev = Label(raiz, text='Previsualización:', font=('arial', 15))
+#prev.grid(row=1, column=0, sticky='n', pady=5, padx=5)
 
 #Creación del listener del texto de entrada
 txt = StringVar()
 txt.trace("w", preview)
+txtC = StringVar()
+
 
 #Campo de entrada
 entNombre = Entry(raiz, textvariable = txt)
 entNombre.grid(row=0, column=1, sticky='w', pady=5, padx=5, ipadx=60)
 
+#Campo de entrada
+cargo = Label(raiz, text='Cargo:', font=('arial', 15))
+cargo.grid(row=1, column=0, sticky='w', pady=5, padx=5)
+entCargo = Entry(raiz, textvariable = txtC)
+entCargo.grid(row=1, column=1, sticky='w', pady=5, padx=5, ipadx=60)
+
 #Label que muestra la previsualización
-prev = Label(raiz)
-prev.grid(row = 2, column = 1, sticky = 'w', pady = 5, padx = 5)
+#prev = Label(raiz)
+#prev.grid(row = 2, column = 1, sticky = 'w', pady = 5, padx = 5)
 
 #Advertencia de tamaño de la iamgen
 adv = Label(raiz, font=('arial', 15))
